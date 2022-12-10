@@ -6,7 +6,7 @@ import Link from 'next/link'
 // import pro from '../public/images/pro.PNG'
 
 const name = 'Zachary Stoner'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Next.js Prototype Website'
 
 export default function Layout({ children, home }) {
   return (

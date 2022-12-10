@@ -31,10 +31,10 @@ export default function Home({allPostsData}) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <h2>I made this site in <a href='https://nextjs.org'>Next.js!</a></h2>
+        <h2>I made this site in <a className={utilStyles.listItem3}href='https://nextjs.org'>Next.js!</a></h2>
         <p>I can build a responsive web 
           experience tailored for different
-           tasks through the use of <a href='https://reactjs.org/'>React</a> or
+           tasks through the use of <a className={utilStyles.listItem1} href='https://reactjs.org/'>React</a> or
             vanilla JS, CSS, and HTML. 
             Along with these basics, I can
              incorporate different libraries
@@ -64,7 +64,7 @@ export default function Home({allPostsData}) {
         </ul>
       </section>
 
-      <Link href='/posts/ye'>ye</Link>
+      <Link className={utilStyles.listItem2} href='/posts/ye'>ye</Link>
     </Layout>
   )
 }
