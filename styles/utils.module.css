@@ -48,10 +48,17 @@
   list-style-position:inside;
   border: 2px solid black;
   border-radius: .3em;
-
-
+  color: rgb(29, 135, 36);
 }
-
+.listItem1{
+  color: rgb(33, 242, 103);
+}
+.listItem2{
+  color: rgb(236, 121, 45);
+}
+.listItem3{
+  color: rgb(5, 66, 146);
+}
 .lightText {
   color: #666;
 }
