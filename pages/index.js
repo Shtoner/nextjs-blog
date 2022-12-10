@@ -58,7 +58,7 @@ export default function Home({allPostsData}) {
               <br />
               {id}
               <br />
-              {date}<h6>This was dynamically routed with getStaticProps</h6>
+              {date}<h6>This was statically generated with getStaticProps</h6>
             </li>
           ))}
         </ul>
