@@ -65,7 +65,7 @@ export default function Home({allPostsData}) {
         </ul>
       </section>
 
-      <Link href='posts/[id].js'>ye</Link>
+      <Link href='/posts/firstPost'>ye</Link>
     </Layout>
   )
 }
