@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts';
-import Date from '../components/date'
 
 // export async function getStaticprops(){
 //   const res = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -59,13 +58,13 @@ export default function Home({allPostsData}) {
               <br />
               {id}
               <br />
-              {date}
+              {date}<h6>This was dynamically routed with getStaticProps</h6>
             </li>
           ))}
         </ul>
       </section>
 
-      <Link href='/posts/firstPost'>ye</Link>
+      <Link href='/posts/ye'>ye</Link>
     </Layout>
   )
 }
