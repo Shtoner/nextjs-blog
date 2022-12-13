@@ -1,8 +1,10 @@
-.container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
-}
+
+/* .container { */
+
+  /* max-width: 36rem; */
+  /* padding: 0 1rem; */
+  /* margin: 3rem auto 6rem; */
+/* } */
 
 .header {
   display: flex;
@@ -10,10 +12,9 @@
   align-items: center;
 }
 
-.backToHome {
-  margin: 3rem 0 0;
-}
 
 .bth{
   color: crimson;
+  margin: 3rem 0 0;
+
 }
