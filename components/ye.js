@@ -1,5 +1,5 @@
-import Layout from "../../components/layout";
-import React, { useState, useEffect } from 'react';
+import Layout from "./layout";
+import React, { useState, useEffect,useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // const Canvas = props => {
@@ -202,43 +202,58 @@ import PropTypes from 'prop-types';
 // };
 
 const Canvas = props => {
+    // const { draw, ...rest } = props
     const [coords, setCoords] = useState({x: 0, y: 0});
-    const [prevcoords, setPrevCoords] = useState({x: 0, y: 0});   
-    const [isMouseDown, setisMouseDown] = useState(false)
-    const canvasRef = React.useRef();
+    const [prevcoords, setPrevCoords] = useState({x: 0, y: 0});  
 
+    const [isMouseDown, setisMouseDown] = useState(false)
+    const canvasRef = React.useRef(null);
+ 
 
 
     const Reposition =(event)=> {   
-  
+            console.log(event);
+          if(!event){
+            return
+          }else{
         setPrevCoords({ ...coords });
 console.log(event)
+
+    console.log(prevcoords)
+    console.log(coords)
         setCoords({
           x: event.offsetX ,
           y: event.offsetY ,
         });
+    }
          }
-    
-      const draw = () => {
+        
+        
+    const draw = () => {
         const canvas = canvasRef.current
         const contxt = canvas.getContext('2d')
      
         Reposition(event)
+        console.log(coords)
+        contxt.beginPath()
             contxt.lineWidth = 5;
             contxt.lineCap = 'round';
             contxt.strokeStyle = '#ACD3ED';                                
             contxt.moveTo(prevcoords.x, prevcoords.y);
             contxt.lineTo(coords.x, coords.y);
-            contxt.stroke();       
+            contxt.stroke();  
+            // requestAnimationFrame(draw)     
          }
+
 //     const D=()=>{
 // window.addEventListener('mousemove',function(){
 // draw()})
 // }  
+// const canvas = canvasRef.current
+// const contxt = canvas.getContext('2d')
       useEffect(()=>{
 
-
-
+   
             function resize() {
                 const canvas = canvasRef.current
                 // const contxt = canvas.getContext('2d')
@@ -246,25 +261,38 @@ console.log(event)
                 canvas.height = window.innerHeight;
             }
             resize()
-            // return()=> clearInterval(interval)
-        },[])
+            let frameCount=0
+            let animationFrameId
+            const render = () => {
 
-          const Stop =()  => {
-        console.log('stop')
-// cancelAnimationFrame(draw)
+        
+                frameCount++
+                // Reposition()
+                // draw
+                animationFrameId = window.requestAnimationFrame(render)
+              }
+              render()
+window.addEventListener('mouseup',function(){
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+    }
+})
+  }, [])
 
-        window.removeEventListener('mousemove', D);
-      }      
+//           const Stop =()  => {
+//         console.log('stop')
+// // cancelAnimationFrame(draw)
+
+//         window.removeEventListener('mousemove', D);
+//       }      
        return (<div onMouseMove={draw}  
         >
-    <canvas   style={{"backgroundColor":"white",
-    "width":"100%",
-    }}  ref={canvasRef} {...props}/>
+    <canvas     ref={canvasRef} />
     </div>)
 
 }
-export default function aye(){
-
+export default function Aye(){
+ 
 
     return(
         // <div>
