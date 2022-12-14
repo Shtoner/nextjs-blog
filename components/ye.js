@@ -210,40 +210,77 @@ const Canvas = props => {
     const canvasRef = React.useRef(null);
  
 
-
     const Reposition =(event)=> {   
-            console.log(event);
-          if(!event){
-            return
-          }else{
-        setPrevCoords({ ...coords });
+      console.log(event);
+    if(!event){
+      return
+    }else{
+  setPrevCoords({ ...coords });
 console.log(event)
 
-    console.log(prevcoords)
-    console.log(coords)
-        setCoords({
-          x: event.offsetX ,
-          y: event.offsetY ,
-        });
-    }
-         }
+console.log(prevcoords)
+console.log(coords)
+  setCoords({
+    x: event.clientX ,
+    y: event.clientY ,
+  });
+}
+   }
+
         
         
+         let frameCount=0
+         let animationFrameId
     const draw = () => {
         const canvas = canvasRef.current
         const contxt = canvas.getContext('2d')
      
         Reposition(event)
         console.log(coords)
-        contxt.beginPath()
+        // contxt.beginPath()
             contxt.lineWidth = 5;
             contxt.lineCap = 'round';
             contxt.strokeStyle = '#ACD3ED';                                
             contxt.moveTo(prevcoords.x, prevcoords.y);
             contxt.lineTo(coords.x, coords.y);
             contxt.stroke();  
-            // requestAnimationFrame(draw)     
-         }
+
+
+              // render()
+            }
+
+           function handledraw(){
+  
+
+            }
+    const handlemouseup=()=>{
+       setisMouseDown(false)
+       console.log(isMouseDown)
+
+    }
+const handlemousedown =()=>{
+setisMouseDown(true)
+
+      console.log(isMouseDown)
+}
+ // requestAnimationFrame(draw)    
+ const handlemousemove=()=>{
+  if(isMouseDown===true){
+    draw()
+  }else{
+    return
+  } 
+ } 
+
+
+// const Run = ()=>{
+//   const timerId = setInterval(() => {
+//     draw()
+//                 }, 500)
+              
+//                 return () => clearInterval(timerId)
+// }
+// document.addEventListener('mousedown',)
 
 //     const D=()=>{
 // window.addEventListener('mousemove',function(){
@@ -252,31 +289,27 @@ console.log(event)
 // const canvas = canvasRef.current
 // const contxt = canvas.getContext('2d')
       useEffect(()=>{
+ 
 
    
             function resize() {
-                const canvas = canvasRef.current
+        const canvas = canvasRef.current
+
                 // const contxt = canvas.getContext('2d')
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             }
             resize()
-            let frameCount=0
-            let animationFrameId
-            const render = () => {
+
+            // const render = () => {
 
         
-                frameCount++
-                // Reposition()
-                // draw
-                animationFrameId = window.requestAnimationFrame(render)
-              }
-              render()
-window.addEventListener('mouseup',function(){
-    return () => {
-      window.cancelAnimationFrame(animationFrameId)
-    }
-})
+            //   // frameCount++
+            //   draw()
+            //   animationFrameId = window.requestAnimationFrame(render)
+            //           }
+            // render()
+            // return cancelAnimationFrame(animationFrameId)
   }, [])
 
 //           const Stop =()  => {
@@ -285,7 +318,8 @@ window.addEventListener('mouseup',function(){
 
 //         window.removeEventListener('mousemove', D);
 //       }      
-       return (<div onMouseMove={draw}  
+       return (<div onMouseMove={handlemousemove} onMouseDown={(e)=>{handlemousedown()}} 
+        onMouseUp={(e)=>{handlemouseup()}} 
         >
     <canvas     ref={canvasRef} />
     </div>)
