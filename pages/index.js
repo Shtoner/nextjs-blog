@@ -64,7 +64,8 @@ export default function Home({allPostsData}) {
           ))}
         </ul>
       </section>
-      <h1><Link className={utilStyles.listItem2} href='/posts/draw'>draw</Link>
+      <h1><Link className={utilStyles.listItem2} href='/posts/draw'>draw</Link></h1>
+      <h1><Link className={utilStyles.listItem2} href='/imageAI'>AI API</Link>
       </h1><br/>
       <h1><a href='https://react-portfolio-chi-ashen.vercel.app/' className={utilStyles.listItem2}> Check out my React portfolio!</a>
       </h1>
