@@ -7,6 +7,13 @@ import Layout, { siteTitle } from '../components/layout'
 export default  function  ImageGenerator() {
     const { Configuration, OpenAIApi } = require("openai");
   const [image, setImage] = useState(null);
+  const [prompt, setPrompt] = useState('Generate a cool image')
+
+
+  const promptit =()=> {
+
+setPrompt('')
+  }
 
   const generateImage = async () => {
     try {
@@ -18,10 +25,10 @@ export default  function  ImageGenerator() {
       // Make the call to the OpenAI API
       const response = await openai.createImage({
         model: 'image-alpha-001',
-        prompt: 'Generate a cool image',
+        prompt: prompt,
         size: '512x512',
       });
- await console.log(response)
+//  await console.log(response)
       // Set the generated image as the state of the component
       await setImage(response.data.data[0].url);
     } catch (error) {
@@ -31,7 +38,10 @@ export default  function  ImageGenerator() {
 
   return (
 <Layout> 
-         <button onClick={generateImage}>Generate Image</button>
+    <div>
+           <input placeholder="Generate a cool prompt" onChange={(e) =>{setPrompt(e.target.value)}}></input> 
+           <button onClick={generateImage}>Generate Image!</button>
+           </div>
       {image && <img src={image} alt="Generated image" />}
       </Layout>
   );
