@@ -19,7 +19,7 @@ export default  function  ImageGenerator() {
       const response = await openai.createImage({
         model: 'image-alpha-001',
         prompt: 'Generate a cool image',
-        size: "1024x1024",
+        size: '512x512',
       });
  await console.log(response)
       // Set the generated image as the state of the component
