@@ -321,7 +321,7 @@ setisMouseDown(true)
        return (<div onMouseMove={handlemousemove} onMouseDown={(e)=>{handlemousedown()}} 
         onMouseUp={(e)=>{handlemouseup()}} 
         >
-    <canvas     ref={canvasRef} />
+    <canvas style={{"background-color":"black"}}    ref={canvasRef} />
     </div>)
 
 }
@@ -329,8 +329,7 @@ export default function Aye(){
  
 
     return(
-        // <div>
-<><Canvas /></>
-//   </div>
-    )
+<Layout>
+  <Canvas />
+</Layout>    )
 }
