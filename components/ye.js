@@ -1,7 +1,7 @@
 import Layout from "./layout";
 import React, { useState, useEffect,useRef } from 'react';
 import PropTypes from 'prop-types';
-
+import {ColorPicker,useColor} from 'react-color-palette'
 // const Canvas = props => {
 //     const [coords, setCoords] = useState({x: 0, y: 0});
 //     const [prevcoords, setPrevCoords] = useState({x: 0, y: 0});
@@ -205,10 +205,9 @@ const Canvas = props => {
     // const { draw, ...rest } = props
     const [coords, setCoords] = useState({x: 0, y: 0});
     const [prevcoords, setPrevCoords] = useState({x: 0, y: 0});  
-
+    const [color, setColor] = useColor("hex", "#121212")
     const [isMouseDown, setisMouseDown] = useState(false)
     const canvasRef = React.useRef(null);
- 
 
     const Reposition =(event)=> {   
       console.log(event);
@@ -236,11 +235,13 @@ console.log(coords)
         const contxt = canvas.getContext('2d')
      
         Reposition(event)
-        console.log(coords)
-        // contxt.beginPath()
+        console.log(color)
             contxt.lineWidth = 5;
             contxt.lineCap = 'round';
-            contxt.strokeStyle = '#ACD3ED';                                
+            contxt.strokeStyle =  color.hex;
+
+        contxt.beginPath()
+
             contxt.moveTo(prevcoords.x, prevcoords.y);
             contxt.lineTo(coords.x, coords.y);
             contxt.stroke();  
@@ -318,11 +319,15 @@ setisMouseDown(true)
 
 //         window.removeEventListener('mousemove', D);
 //       }      
-       return (<div onMouseMove={handlemousemove} onMouseDown={(e)=>{handlemousedown()}} 
+return (
+  <>
+    <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHEX hideHSV/>
+       <div onMouseMove={handlemousemove} onMouseDown={(e)=>{handlemousedown()}} 
         onMouseUp={(e)=>{handlemouseup()}} 
         >
     <canvas style={{"background-color":"black"}}    ref={canvasRef} />
-    </div>)
+    </div>
+    </>)
 
 }
 export default function Aye(){

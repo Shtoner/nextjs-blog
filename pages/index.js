@@ -50,6 +50,12 @@ export default function Home({allPostsData}) {
             for them.</p>
 
       </section>
+            <h1><Link className={utilStyles.listItem2} href='/posts/draw'>draw</Link></h1>
+      <h1><Link className={utilStyles.listItem2} href='/imageAI'>AI API</Link>
+      </h1>
+      <br/>
+      <h1><a href='https://react-portfolio-chi-ashen.vercel.app/' className={utilStyles.listItem2}> Check out my React portfolio!</a>
+      </h1>
       <section className={`${utilStyles.headingLg} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
@@ -64,11 +70,8 @@ export default function Home({allPostsData}) {
           ))}
         </ul>
       </section>
-      <h1><Link className={utilStyles.listItem2} href='/posts/draw'>draw</Link></h1>
-      <h1><Link className={utilStyles.listItem2} href='/imageAI'>AI API</Link>
-      </h1><br/>
-      <h1><a href='https://react-portfolio-chi-ashen.vercel.app/' className={utilStyles.listItem2}> Check out my React portfolio!</a>
-      </h1>
+
+  
     </Layout></div>
   )
 }

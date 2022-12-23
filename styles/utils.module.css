@@ -36,6 +36,8 @@ overflow-y: hidden;
   display: block;
   margin: 0em;
   padding: 0px;
+  border-radius: 10px;
+
 }
 
 
