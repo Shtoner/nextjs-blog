@@ -6,7 +6,7 @@ export async function getStaticProps(){
 
 
 
-    const res = await fetch('https://en.wikipedia.org/wiki/Strawberry')
+    const res = await fetch('https://en.wikipedia.org/wiki/Blackberry')
     const data = await res.text()
     
     const $ = cheerio.load(data);
@@ -45,7 +45,7 @@ export default function CheckOut({wikiData}){
       return (
         <Layout>
         <h5>Scraped From <Link href={'https://en.wikipedia.org/wiki/Strawberry'}>Wikipedia</Link></h5>
-          <h6>{wikiData.links[1]}</h6>
+          <h6>{wikiData.links[3]}</h6>
           <p>{wikiData.bio}</p>
         </Layout>
       )
