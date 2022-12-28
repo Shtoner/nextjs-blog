@@ -36,7 +36,7 @@ export default function Home({allPostsData}) {
         <p>I can build a responsive web 
           experience tailored for different
            tasks through the use of <a className={utilStyles.listItem1} href='https://reactjs.org/'>React</a> or
-            vanilla JS, CSS, and HTML. 
+            vanilla JS, CSS, HTML and metaframeworks like Next or Stencil. 
             Along with these basics, I can
              incorporate different libraries
               and software to accomplish 
