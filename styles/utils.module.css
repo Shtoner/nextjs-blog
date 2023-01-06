@@ -93,6 +93,35 @@ overflow-y: hidden;
 .button:active{
   background-color: rgb(19, 164, 164);
 }
+
+.tooltip{
+  width: 144px;
+} 
+#tooltip:hover::after{
+  background: rgba(0,0,0,.8);
+  border-radius: 5px;
+  color: #fff;
+  content: attr(data-size);
+  /* left: 20%; */
+  /* top: 50; */
+  padding: 5px 15px;
+  position:fixed;
+  z-index: 98;
+}
+.checkout2:hover::after{
+  background: #333;
+  background: rgba(0,0,0,.8);
+  border-radius: 5px;
+  color: #fff;
+  content: attr(title);
+  left: 20%;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+}
+
+
+
 @keyframes spinner {
   from {
     transform: rotate(0deg);
